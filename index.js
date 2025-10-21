@@ -5,8 +5,18 @@ const cors = require('cors')
 const app = express()
 
 app.use(express.json())
-app.use(cors())
 app.use('/uploads', express.static('uploads'));
+app.use(cors({
+  origin: 'https://guileless-dango-b2e626.netlify.app',
+  credentials: true
+}));
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
+  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+  next();
+});
+
+
 
 const user = require('./Routes/usersAPI')
 const videos = require('./Routes/videoAPI')
