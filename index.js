@@ -1,0 +1,26 @@
+require('./Database/database')
+const express = require('express')
+const cors = require('cors')
+
+const app = express()
+
+app.use(express.json())
+app.use(cors())
+app.use('/uploads', express.static('uploads'));
+
+const user = require('./Routes/usersAPI')
+const videos = require('./Routes/videoAPI')
+const admin = require('./Admin/adminAPI')
+const subscribers = require('./Routes/subscribeApi')
+const contact = require('./Routes/contactAPI')
+
+app.use('/user' , user)
+app.use('/video' , videos)
+app.use('/admin' , admin)
+app.use('/subscribe' , subscribers)
+app.use('/contact' , contact)
+
+
+app.listen(process.env.PORT , ()=>{
+    console.log("Server is running on " + process.env.PORT);
+})
