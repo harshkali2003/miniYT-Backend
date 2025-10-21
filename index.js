@@ -10,12 +10,6 @@ app.use(cors({
   origin: 'https://miniytvideo.netlify.app',
   credentials: true
 }));
-app.use((req, res, next) => {
-  res.setHeader("Cross-Origin-Opener-Policy", "same-origin-allow-popups");
-  res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-  next();
-});
-
 
 
 const user = require('./Routes/usersAPI')
