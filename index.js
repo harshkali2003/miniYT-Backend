@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use('/uploads', express.static('uploads'));
 app.use(cors({
-  origin: 'https://guileless-dango-b2e626.netlify.app',
+  origin: 'https://miniytvideo.netlify.app',
   credentials: true
 }));
 app.use((req, res, next) => {
