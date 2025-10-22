@@ -8,9 +8,14 @@ app.use(express.json())
 app.use('/uploads', express.static('uploads'));
 app.use(cors({
   origin: 'https://miniytvideo.netlify.app',
-  credentials: true
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
-
+app.use((req, res, next) => {
+  res.setHeader("Cross-Origin-Opener-Policy", "unsafe-none");
+  res.setHeader("Cross-Origin-Embedder-Policy", "unsafe-none");
+  next();
+});
 
 const user = require('./Routes/usersAPI')
 const videos = require('./Routes/videoAPI')
