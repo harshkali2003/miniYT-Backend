@@ -7,7 +7,7 @@ const app = express()
 app.use(express.json())
 app.use('/uploads', express.static('uploads'));
 app.use(cors({
-  origin: 'https://miniytvideo.netlify.app',
+  origin: ['https://miniytvideo.netlify.app' , 'http://localhost:3000'],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));

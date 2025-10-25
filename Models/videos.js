@@ -10,6 +10,7 @@ const videoMetaData = new mongoose.Schema({
         type : [String],
         default : []
     },
+    views : {type : Number , default : 0},
     uploadedBy : {
         type : mongoose.Schema.Types.ObjectId ,
         ref : 'USERS'
